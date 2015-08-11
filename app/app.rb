@@ -4,18 +4,18 @@ require 'sinatra/base'
 
 class App < Sinatra::Base
 # set :views, proc { File.join(root, ".." "views") }
-get '/links' do
+get '/' do
 	@links = Link.all
-	erb :'links/index'
+	erb :index
 end
 
-get '/links/new' do
-	erb :'links/new'
+get '/new' do
+	erb :new
 end
 
-post '/links' do
+post '/' do
 	Link.create(url: params[:url], title: params[:title])
-	redirect to ('/links')
+	redirect to ('/')
 end
 
 end

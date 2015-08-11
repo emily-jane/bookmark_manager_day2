@@ -5,7 +5,7 @@ feature 'Viewing links' do
   scenario 'I can see existing links on the links page' do
     Link.new(url: 'http://www.makersacademy.com', title: 'Makers Academy').save
 
-    visit '/links'
+    visit '/'
 
     # as this is our first feature test,
     # the following expectation is a quick check that everything is working.
