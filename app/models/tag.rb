@@ -1,3 +1,5 @@
+require 'dm-validations'
+
 class Tag
   include DataMapper::Resource
 
@@ -5,5 +7,7 @@ class Tag
   property :name, String
 
   has n, :links, through: Resource
+
+  validates_presence_of :name
 
 end

@@ -15,8 +15,10 @@ end
 
 post '/' do
 	link = Link.new(url: params[:url], title: params[:title])
-	tag = Tag.create(name: params[:tag])
-	link.tags << tag
+	params[:tags].split(' ').each do |tag_part|
+		tag = Tag.create(name: tag_part)
+		link.tags << tag
+	end
 	link.save
 	redirect to ('/')
 end
